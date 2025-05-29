@@ -87,25 +87,39 @@ This is just the beginning. Let's build the future of debugging â€” together. ðŸ
 };
 
 export function activate(context: vscode.ExtensionContext): void {
+  // Show a notification when the extension is activated
+  vscode.window.showInformationMessage('Turbo Console Log activated!');
+
   const config: vscode.WorkspaceConfiguration =
     vscode.workspace.getConfiguration('turboConsoleLog');
   const extensionProperties: ExtensionProperties =
     getExtensionProperties(config);
   const commands: Array<Command> = getAllCommands();
 
+  // Log the commands being registered
+  console.log(
+    'Registering commands:',
+    commands.map((cmd) => cmd.name),
+  );
+
   for (const { name, handler } of commands) {
-    vscode.commands.registerCommand(name, (args: unknown[]) => {
-      handler({
-        extensionProperties,
-        debugMessage: jsDebugMessage,
-        args,
-        context,
-      });
-    });
+    console.log(`Registering command: ${name}`);
+    const disposable = vscode.commands.registerCommand(
+      name,
+      (args: unknown[]) => {
+        console.log(`Command executed: ${name}`);
+        handler({
+          extensionProperties,
+          debugMessage: jsDebugMessage,
+          args,
+          context,
+        });
+      },
+    );
+    context.subscriptions.push(disposable);
   }
-  const version = vscode.extensions.getExtension(
-    'ChakrounAnas.turbo-console-log',
-  )?.packageJSON.version;
+  const version = vscode.extensions.getExtension('tombobap.turbo-console-log')
+    ?.packageJSON.version;
   const proLicenseKey = readFromGlobalState<string>(context, 'license-key');
   const proBundle = readFromGlobalState<string>(
     context,

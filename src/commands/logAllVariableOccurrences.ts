@@ -57,14 +57,53 @@ export function logAllVariableOccurrencesCommand(): Command {
       await editor.edit((editBuilder) => {
         matches.forEach((range, index) => {
           const lineOfSelectedVar = range.start.line;
-          const lineOfLogMsg = lineOfSelectedVar + 1;
+
+          // Get the current line text to check if it's safe to add a log after it
+          const currentLine = document.lineAt(lineOfSelectedVar);
+          const currentLineText = currentLine.text;
+
+          // Check if the current line is inside a function parameter, regex test, or other unsafe locations
+          const isInsideParenthesis = (text: string): boolean => {
+            const openParens = (text.match(/\(/g) || []).length;
+            const closeParens = (text.match(/\)/g) || []).length;
+            return openParens > closeParens;
+          };
+
+          const isInsideRegexTest = (text: string): boolean => {
+            return text.includes('.test(') && !text.includes(');');
+          };
+
+          const isInsideObjectLiteral = (text: string): boolean => {
+            const openBraces = (text.match(/{/g) || []).length;
+            const closeBraces = (text.match(/}/g) || []).length;
+            return openBraces > closeBraces;
+          };
+
+          const isInsideArrayLiteral = (text: string): boolean => {
+            const openBrackets = (text.match(/\[/g) || []).length;
+            const closeBrackets = (text.match(/\]/g) || []).length;
+            return openBrackets > closeBrackets;
+          };
+
+          const isUnsafeLocation =
+            isInsideParenthesis(currentLineText) ||
+            isInsideRegexTest(currentLineText) ||
+            isInsideObjectLiteral(currentLineText) ||
+            isInsideArrayLiteral(currentLineText);
+
+          // Skip adding log if it's an unsafe location
+          if (isUnsafeLocation) {
+            return;
+          }
 
           // Get indentation of the current line
-          const currentLine = document.lineAt(lineOfSelectedVar);
-          const indentation = currentLine.text.substring(
+          const indentation = currentLineText.substring(
             0,
             currentLine.firstNonWhitespaceCharacterIndex,
           );
+
+          // Determine where to insert the log
+          const lineOfLogMsg = lineOfSelectedVar + 1;
 
           // Create the log message with STEP number
           const stepNumber = index + 1;

@@ -171,8 +171,8 @@
       },
       {
         "command": "turboConsoleLog.logAllVariableOccurrences",
-        "key": "ctrl+alt+a",
-        "mac": "ctrl+alt+a"
+        "key": "ctrl+alt+shift+a",
+        "mac": "ctrl+alt+shift+a"
       }
     ],
     "viewsContainers": {
@@ -219,16 +219,16 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "rm -rf out && npm run esbuild-base -- --minify",
+    "vscode:prepublish": "if exist out rmdir /s /q out && npm run esbuild-base -- --minify",
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
     "watch": "npm run esbuild --watch",
     "lint": "tsc --noEmit && eslint src --ext ts",
-    "pretest": "yarn run esbuild-base",
-    "test:compile": "rm -rf out && tsc -p ./ && mkdir out/test/files && cp -r src/test/files/ out/test/files/",
+    "pretest": "npm run esbuild-base",
+    "test:compile": "if exist out rmdir /s /q out && tsc -p ./ && mkdir out\\test\\files && xcopy src\\test\\files\\ out\\test\\files\\ /E /I",
     "test": "npm run test:compile && node ./out/test/runTests.js",
-    "test:unit": "npm run test:compile && mocha --require ts-node/register 'src/test/unit/**/*.test.ts'"
+    "test:unit": "npm run test:compile && mocha --require ts-node/register \"src/test/unit/**/*.test.ts\""
   },
   "devDependencies": {
     "@types/chai": "^5.0.0",

@@ -1,117 +1,126 @@
-# Turbo Console Log 🚀
+# Turbo Console Log Enhanced 🚀
 
-[Official Website](https://www.turboconsolelog.io) 🎨  
-[GitHub Repository](https://github.com/Chakroun-Anas/turbo-console-log) 📝
-
----
-
-## 🌟 Why Turbo Console Log?
-
-Turbo Console Log is a **developer’s best friend** when it comes to debugging.
-
-Trusted by **nearly 2 million developers**, it simplifies inserting meaningful log messages and makes debugging **faster and more efficient**.
+Dựa trên [Turbo Console Log](https://github.com/Chakroun-Anas/turbo-console-log) với các cải tiến bổ sung.
 
 ---
 
-## 🚀 Features at a Glance
+## 🌟 Tại sao nên dùng Turbo Console Log Enhanced?
 
-✔️ **Insert Meaningful Log Messages** – Quickly generate console logs with helpful context  
-✔️ **Comment, Uncomment, or Delete Logs** – Manage logs with a simple shortcut  
-✔️ **Multi-Cursor Support** – Debug multiple variables simultaneously  
-✔️ **Customizable Log Format** – Personalize how logs appear in your code
+Turbo Console Log Enhanced là công cụ hỗ trợ debug mạnh mẽ cho các nhà phát triển, giúp bạn:
 
-📖 **Full Documentation**: [Turbo Console Log Docs](https://www.turboconsolelog.io/documentation/features)
-
----
-
-## 🔧 Configuration & Customization
-
-Want to customize your logs? Turbo Console Log allows you to adjust:
-
-✅ Prefixes & Suffixes  
-✅ Log Function (`console.log`, `console.warn`, `console.error`, etc.)  
-✅ Quote Type (`'`, `"`, or \``)  
-✅ Filename & Line Number Inclusion
-
-📖 **Explore Settings**: [Settings Documentation](https://www.turboconsolelog.io/documentation/settings)
+- **Thêm console.log thông minh** với ngữ cảnh rõ ràng
+- **Tránh lỗi cú pháp** khi thêm log vào các vị trí không an toàn
+- **Tiết kiệm thời gian** với các phím tắt tiện lợi
+- **Tùy chỉnh định dạng log** theo nhu cầu của bạn
 
 ---
 
-## ✨ What’s New in v2.17.0? – The First PRO Release (Pre-Launch Phase)
+## 🚀 Tính năng nổi bật
 
-This update is 🔥 historic — **Turbo Console Log PRO is officially live for early adopters!**
-
-- **🆕 New Command:**  
-  `activateTurboProBundle` — Allows early adopters to activate their PRO license key and unlock premium features
-
-- **🔐 License Key Support:**  
-  Secure activation flow with license key persistence via global state
-
-- **🧠 Dynamic Runtime Execution:**  
-  PRO module loads at runtime with full isolation and validation
-
-- **🌐 Freemium VSCode Panel (for non-activated users):**  
-  Helps users join the newsletter, understand PRO, and activate when ready
-
-- **🎁 Lifetime License for Early Adopters:**  
-  Newsletter subscribers before launch automatically receive a free PRO key
-
-🔐 PRO sits on top of the free version — open source stays free forever.  
-📩 [Join the newsletter](https://www.turboconsolelog.io/join) to get early access and launch updates.
-
-> 🧪 This is a **pre-launch milestone** — PRO goes fully public next week. Thank you for being part of the journey.
-
-📖 **[Read the full release article](https://www.turboconsolelog.io/articles/release-2170)**
+✔️ **Thêm log thông minh** - Tự động thêm console.log với thông tin ngữ cảnh hữu ích  
+✔️ **Kiểm tra vị trí an toàn** - Tránh thêm log vào các vị trí không hợp lệ  
+✔️ **Quản lý log dễ dàng** - Comment, uncomment hoặc xóa log với phím tắt đơn giản  
+✔️ **Hỗ trợ multi-cursor** - Debug nhiều biến cùng lúc  
+✔️ **Tùy chỉnh định dạng log** - Cá nhân hóa cách hiển thị log trong code
 
 ---
 
-## ✉️ Stay in the Loop – Join the Newsletter
+## 🔧 Cấu hình & Tùy chỉnh
 
-🚀 **Get early access to new features, exclusive updates, and behind-the-scenes insights!**  
-Be the first to know about **Turbo Console Log improvements, releases, and launch news**.
+Bạn có thể tùy chỉnh log theo nhiều cách:
 
-📩 **Join the newsletter** → [https://www.turboconsolelog.io/join](https://www.turboconsolelog.io/join)
-
----
-
-## 💙 Support Turbo Console Log
-
-Turbo Console Log is **free & open-source**, maintained with passion by developers like you.
-
-If you’ve found value in it, you can help keep it growing:
-
-🔗 **[Visit the Sponsorship Page](https://www.turboconsolelog.io/sponsorship)**
-
-Your support fuels **bug fixes, improvements, and new features**, ensuring Turbo Console Log continues evolving for **millions of developers—including YOU!**
-
-Whether you contribute or not, we’re happy to have you as part of this journey. 🚀
+✅ Tiền tố & Hậu tố  
+✅ Hàm log (`console.log`, `console.warn`, `console.error`, v.v.)  
+✅ Loại dấu ngoặc kép (`'`, `"`, hoặc \``)  
+✅ Hiển thị tên file & số dòng
 
 ---
 
-## 📢 Stay Updated
+## ✨ Cải tiến mới trong phiên bản này
 
-🔗 **[Follow Turbo Console Log Updates](https://www.turboconsolelog.io/articles)**  
-💬 **Join the Discussion** → [GitHub Discussions](https://github.com/Chakroun-Anas/turbo-console-log/discussions)
+- **🛡️ Kiểm tra vị trí an toàn:**  
+  Tự động phát hiện và bỏ qua các vị trí không an toàn khi thêm log
 
----
+- **🔍 Phát hiện thông minh:**  
+  Nhận biết các trường hợp đặc biệt như:
 
-## 📧 Contact
+  - Bên trong dấu ngoặc đơn chưa đóng
+  - Bên trong hàm `.test()` của RegExp
+  - Bên trong object literal chưa đóng
+  - Bên trong array literal chưa đóng
 
-📩 **Support:** [support@turboconsolelog.io](mailto:support@turboconsolelog.io)  
-📩 **Feedback:** [feedback@turboconsolelog.io](mailto:feedback@turboconsolelog.io)  
-📩 **Sponsorship:** [sponsorship@turboconsolelog.io](mailto:sponsorship@turboconsolelog.io)
+- **🧹 Code sạch hơn:**  
+  Loại bỏ các console.log debug không cần thiết trong mã nguồn
 
----
-
-## 🎯 Contribute
-
-Turbo Console Log is **open for contributions!**  
-Want to improve it? Report issues, suggest features, or submit pull requests:
-
-👉 **[Contribute on GitHub](https://github.com/Chakroun-Anas/turbo-console-log)**
+- **🔄 Cải thiện hiệu suất:**  
+  Tối ưu hóa quá trình phân tích cú pháp và thêm log
 
 ---
 
-## 📜 License
+## 🔌 Cách sử dụng
 
-MIT License &copy; Turbo Console Log
+### Phím tắt mặc định
+
+- **Thêm log cho biến được chọn:** `Ctrl+Alt+L`
+- **Thêm log cho tất cả các biến:** `Ctrl+Alt+Shift+A`
+- **Comment tất cả các log:** `Ctrl+Alt+C`
+- **Uncomment tất cả các log:** `Ctrl+Alt+U`
+- **Xóa tất cả các log:** `Ctrl+Alt+D`
+
+### Ví dụ
+
+Khi bạn chọn một biến và nhấn `Ctrl+Alt+L`, extension sẽ thêm một dòng log như sau:
+
+```javascript
+const user = { name: 'John', age: 30 };
+console.log('user => ', user);
+```
+
+Khi bạn sử dụng `Ctrl+Alt+Shift+A` trên một biến, extension sẽ thêm log cho tất cả các lần xuất hiện của biến đó, với số thứ tự STEP:
+
+```javascript
+const user = { name: 'John', age: 30 };
+console.log('STEP 1: user => ', user);
+// ... code khác ...
+updateUser(user);
+console.log('STEP 2: user => ', user);
+```
+
+---
+
+## 🔒 Tính năng an toàn
+
+Extension sẽ tự động kiểm tra và không thêm log vào các vị trí không an toàn như:
+
+```javascript
+// Không thêm log vào giữa tham số hàm
+someFunction(
+  param1,
+  user, // Không thêm log ở đây
+  param3,
+);
+
+// Không thêm log vào giữa object literal
+const config = {
+  user: user, // Không thêm log ở đây
+  options: {},
+};
+
+// Không thêm log vào giữa array
+const items = [
+  user, // Không thêm log ở đây
+  otherItem,
+];
+```
+
+---
+
+## 🎯 Đóng góp
+
+Nếu bạn muốn cải thiện extension này, hãy tạo pull request hoặc báo cáo lỗi trên GitHub.
+
+---
+
+## 📜 Giấy phép
+
+MIT License
