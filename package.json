@@ -1,9 +1,9 @@
 {
   "name": "turbo-console-log",
-  "displayName": "Turbo Console Log",
+  "displayName": "Custom Console Log",
   "description": "Automating the process of writing meaningful log messages.",
-  "version": "2.17.0",
-  "publisher": "ChakrounAnas",
+  "version": "1.0.0",
+  "publisher": "TomBoBap",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -132,6 +132,10 @@
       {
         "command": "turboConsoleLog.activateTurboProBundle",
         "title": "Turbo Console Log: Activate Turbo Pro Bundle"
+      },
+      {
+        "command": "turboConsoleLog.logAllVariableOccurrences",
+        "title": "Turbo Console Log: Log All Variable Occurrences"
       }
     ],
     "keybindings": [
@@ -164,6 +168,11 @@
         "command": "turboConsoleLog.activateTurboProBundle",
         "key": "alt+shift+p",
         "mac": "alt+shift+p"
+      },
+      {
+        "command": "turboConsoleLog.logAllVariableOccurrences",
+        "key": "ctrl+alt+a",
+        "mac": "ctrl+alt+a"
       }
     ],
     "viewsContainers": {
@@ -256,7 +265,7 @@
   },
   "__metadata": {
     "id": "6623619a-676d-4cde-943f-a3c193b44fc0",
-    "publisherDisplayName": "ChakrounAnas",
+    "publisherDisplayName": "TomBoBap",
     "publisherId": "4fecec8e-335d-44fc-ab16-5356745fb1ac",
     "isPreReleaseVersion": false
   },
